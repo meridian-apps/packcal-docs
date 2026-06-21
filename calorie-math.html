@@ -40,7 +40,7 @@
 <p class="updated">For technical readers asking "what's the equation?"</p>
 </div>
 
-<p>PackCal's calorie number is load-aware because Garmin's built-in activity profiles aren't. This page covers exactly how the math works, what the inputs are, and where the published research comes from. It's the same calorie engine as its full-app sibling, <a href="https://meridian-apps.github.io/rucktrack-docs/">RuckTrack</a> — the Pandolf path is a verbatim port — so the two products agree calorie-for-calorie.</p>
+<p>PackCal's calorie number is load-aware because Garmin's built-in activity profiles aren't. This page covers exactly how the math works, what the inputs are, and where the published research comes from. It's the same calorie engine as its full-app sibling, <a href="https://meridian-apps.github.io/rucktrack-docs/">RuckTrack</a>, the Pandolf path is a verbatim port, so the two products agree calorie-for-calorie.</p>
 
 <div class="toc">
 <ol>
@@ -67,39 +67,39 @@ M = 1.5W + 2(W+L)(L/W)² + η(W+L)(1.5V² + 0.35VG)
 </div>
 <p>Where:</p>
 <ul>
-  <li><code>M</code> — metabolic rate in watts</li>
-  <li><code>W</code> — body weight in kg. PackCal uses your manual body-weight override if you set one, otherwise your Garmin user-profile weight. If neither is available it shows SETUP NEEDED rather than guessing a default.</li>
-  <li><code>L</code> — pack weight in kg</li>
-  <li><code>V</code> — walking speed in m/s (clamped at 2.5 m/s; the equation was validated for walking only)</li>
-  <li><code>G</code> — terrain grade in percent (from a rolling altitude/distance window)</li>
-  <li><code>η</code> — terrain coefficient (see next section)</li>
+  <li><code>M</code>, metabolic rate in watts</li>
+  <li><code>W</code>, body weight in kg. PackCal uses your manual body-weight override if you set one, otherwise your Garmin user-profile weight. If neither is available it shows SETUP NEEDED rather than guessing a default.</li>
+  <li><code>L</code>, pack weight in kg</li>
+  <li><code>V</code>, walking speed in m/s (clamped at 2.5 m/s; the equation was validated for walking only)</li>
+  <li><code>G</code>, terrain grade in percent (from a rolling altitude/distance window)</li>
+  <li><code>η</code>, terrain coefficient (see next section)</li>
 </ul>
-<p>The three terms are intuitive once you read them: <code>1.5W</code> is the resting/maintenance term, <code>2(W+L)(L/W)²</code> is the load-carriage penalty (note the squared L/W ratio — heavier loads on lighter people cost disproportionately more), and <code>η(W+L)(1.5V² + 0.35VG)</code> is the velocity-and-grade work term.</p>
+<p>The three terms are intuitive once you read them: <code>1.5W</code> is the resting/maintenance term, <code>2(W+L)(L/W)²</code> is the load-carriage penalty (note the squared L/W ratio, heavier loads on lighter people cost disproportionately more), and <code>η(W+L)(1.5V² + 0.35VG)</code> is the velocity-and-grade work term.</p>
 <p>PackCal accumulates <code>M/4184</code> kcal per second while you're moving above 0.3 m/s. The 4184 conversion is the standard joules-per-kcal factor (1 kcal = 4184 J).</p>
-<p>An <strong>unloaded baseline</strong> runs in parallel — the same equation with L = 0. Subtracting unloaded calories from loaded calories gives the <em>pack bonus</em>: the calories that came purely from the weight. That's the number on the <strong>CAL FROM PACK</strong> pill on the single-field screen.</p>
+<p>An <strong>unloaded baseline</strong> runs in parallel, the same equation with L = 0. Subtracting unloaded calories from loaded calories gives the <em>pack bonus</em>: the calories that came purely from the weight. That's the number on the <strong>CAL FROM PACK</strong> pill on the single-field screen.</p>
 
 <h2 id="terrain">Terrain coefficients</h2>
 <p>The terrain coefficient η scales the velocity-and-grade work term by how much energy the surface costs you. Values from the U.S. Army terrain-factor research (<a href="#references">Soule &amp; Goldman, 1972</a>):</p>
 <ul>
-  <li><strong>Road</strong> — η = 1.00. Paved or hard-packed.</li>
-  <li><strong>Gravel</strong> — η = 1.05. Packed gravel paths and well-maintained fire roads.</li>
-  <li><strong>Trail</strong> — η = 1.20. Hiking trails, dirt, loose rock.</li>
-  <li><strong>Sand</strong> — η = 1.50. Soft sand, deep mud.</li>
-  <li><strong>Snow</strong> — η = 2.50. Soft snow. Trudging through deep powder genuinely costs about two and a half times the surface term of pavement, which is why winter carries read so much higher.</li>
+  <li><strong>Road</strong>, η = 1.00. Paved or hard-packed.</li>
+  <li><strong>Gravel</strong>, η = 1.05. Packed gravel paths and well-maintained fire roads.</li>
+  <li><strong>Trail</strong>, η = 1.20. Hiking trails, dirt, loose rock.</li>
+  <li><strong>Sand</strong>, η = 1.50. Soft sand, deep mud.</li>
+  <li><strong>Snow</strong>, η = 2.50. Soft snow. Trudging through deep powder genuinely costs about two and a half times the surface term of pavement, which is why winter carries read so much higher.</li>
 </ul>
-<p>A 50 percent increase from Road to Sand, and 150 percent for soft snow, for the same speed and load: these are real numbers from the literature, not rough estimates. Pick the terrain in PackCal's on-watch settings; you can change it mid-activity and the next tick picks it up. The value at save time writes to the activity's FIT file as the <code>terrain_factor</code> field. (These coefficients match RuckTrack's exactly, by design — the two products share one terrain set.)</p>
+<p>A 50 percent increase from Road to Sand, and 150 percent for soft snow, for the same speed and load: these are real numbers from the literature, not rough estimates. Pick the terrain in PackCal's on-watch settings; you can change it mid-activity and the next tick picks it up. The value at save time writes to the activity's FIT file as the <code>terrain_factor</code> field. (These coefficients match RuckTrack's exactly, by design, the two products share one terrain set.)</p>
 
 <h2 id="descent">The Santee descent floor</h2>
-<p>Vanilla Pandolf underestimates metabolic cost on negative grades — the equation goes mathematically silly when G is large and negative, sometimes returning a metabolic rate below resting. <a href="#references">Santee et al. (2001)</a> showed empirically that descent still costs at least the resting/maintenance term.</p>
+<p>Vanilla Pandolf underestimates metabolic cost on negative grades, the equation goes mathematically silly when G is large and negative, sometimes returning a metabolic rate below resting. <a href="#references">Santee et al. (2001)</a> showed empirically that descent still costs at least the resting/maintenance term.</p>
 <p>PackCal applies the Santee floor: on negative grades, M is floored at <code>1.5W</code>. Calories don't dip below maintenance just because you're walking downhill.</p>
 
 <h2 id="hybrid">Hybrid fallback to heart rate</h2>
-<p>The Pandolf equation needs speed and grade, both of which come from GPS. When GPS isn't usable — under tree cover, during the first minute before lock, or when you stop on a hill for a break — Pandolf would either freeze or produce garbage.</p>
+<p>The Pandolf equation needs speed and grade, both of which come from GPS. When GPS isn't usable (under tree cover, during the first minute before lock, or when you stop on a hill for a break), Pandolf would either freeze or produce garbage.</p>
 <p>PackCal handles this by accumulating calories from Garmin's native HR-based estimate during any tick where Pandolf isn't reliable. Specifically:</p>
 <ul>
-  <li>Speed below 0.3 m/s (not moving) — native</li>
-  <li>Grade not yet available (first ~60 seconds while the altitude/distance window fills) — native</li>
-  <li>GPS dropout or fix loss — native</li>
+  <li>Speed below 0.3 m/s (not moving), native</li>
+  <li>Grade not yet available (first ~60 seconds while the altitude/distance window fills), native</li>
+  <li>GPS dropout or fix loss, native</li>
 </ul>
 <p>The total calorie number shown in the cell is a hybrid: Pandolf when Pandolf is valid, native HR fallback when it isn't. Both streams accumulate into the same running total, so the number never resets or drops when conditions change. (The pack-bonus figure is computed only from the Pandolf-valid portion, since the native fallback is load-blind.)</p>
 
@@ -114,7 +114,7 @@ kcal = native × (1 + α × L/W)        <em>where α = 0.4</em>
 <p>The big calorie number at the top of an activity in Garmin Connect comes from Garmin's heart-rate model. PackCal's number comes from the mechanical work your body did. Because those are two different methods, they rarely match exactly, and the gap runs in both directions depending on conditions.</p>
 <p><strong>On a treadmill or easy indoor walk, PackCal often reads higher than the headline.</strong> Heart-rate calorie models read low when your heart rate is low. A fit walker at an easy pace barely lifts their HR, so the watch infers a modest burn even though the work of walking that speed and load hasn't changed. PackCal bills that work directly, so its number comes in above the heart-rate one.</p>
 <p><strong>On flat outdoor ground, PackCal can read a little lower.</strong> With no grade and an easy pace the work term is small, and the heart-rate estimate can sit slightly above the work-based one.</p>
-<p>Garmin doesn't let a Connect IQ data field overwrite that headline calorie field, so PackCal's number lives in its own cell while you move and in the activity's <strong>Stats &rarr; Connect IQ</strong> section after you save. The two numbers being different is the point — the headline answers "how hard did your body work?" while PackCal answers "how much of that came from the pack?"</p>
+<p>Garmin doesn't let a Connect IQ data field overwrite that headline calorie field, so PackCal's number lives in its own cell while you move and in the activity's <strong>Stats &rarr; Connect IQ</strong> section after you save. The two numbers being different is the point, the headline answers "how hard did your body work?" while PackCal answers "how much of that came from the pack?"</p>
 
 <h2 id="totals">What shows on the watch and in Connect</h2>
 <p>On the watch, the single-field screen shows the live load-aware total as the hero, a CAL FROM PACK pill with the pack bonus, a live HR / pace / ascent rail, and a timer-and-distance footer. In a denser multi-field layout, PackCal degrades to a labelled calorie number.</p>
@@ -137,7 +137,7 @@ kcal = native × (1 + α × L/W)        <em>where α = 0.4</em>
     <div class="footer-cols">
       <div>
         <h5>PackCal</h5>
-        <p>A Garmin Connect IQ data field that adds load-aware calories — for weighted vests, packs, and loaded hikes — to your existing activities. Built by Meridian Apps.</p>
+        <p>A Garmin Connect IQ data field that adds load-aware calories for weighted vests, packs, and loaded hikes to your existing activities. Built by Meridian Apps.</p>
       </div>
       <div>
         <h5>Product</h5>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ — PackCal</title>
+<meta name="description" content="Answers about PackCal for Garmin watches: how to add the data field to an activity, where pack calories show up, which activities it works in, how calories are computed, and more.">
+<link rel="canonical" href="https://meridian-apps.github.io/packcal-docs/faq.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAQ — PackCal">
+<meta property="og:description" content="How to add PackCal to an activity, where pack calories show up, which activities it works in, how calories are computed, and more.">
+<meta property="og:url" content="https://meridian-apps.github.io/packcal-docs/faq.html">
+<meta property="og:image" content="https://meridian-apps.github.io/packcal-docs/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQ — PackCal">
+<meta name="twitter:description" content="How to add PackCal to an activity, where pack calories show up, and how calories are computed.">
+<meta name="twitter:image" content="https://meridian-apps.github.io/packcal-docs/og-image.png">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I add PackCal to my watch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PackCal is a data field, not a separate activity you start. Install it from the Connect IQ Store, then on your watch open an activity that involves carrying weight — Hike, Walk, or a native Ruck profile. Go into that activity's settings, find its data screens / data fields, pick a field slot, and choose Connect IQ Fields then PackCal. Set your pack weight in PackCal's own on-watch settings (no phone needed) and start the activity — your load-aware calories appear in the cell."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free trial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. PackCal is a one-time $1.99 USD purchase via Garmin Pay, with no trial. A data field has no buttons or input surface of its own, so the usual code-based trial flow doesn't fit it well. Instead, this site is meant to do the trial's job: the screenshots, the calorie-math page, and this FAQ show exactly what you get before you buy. If you want a fuller, try-before-you-buy rucking experience, its companion app RuckTrack offers a 7-day trial on its KiezelPay listing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I see my pack calories, and why are they different from the headline number in Garmin Connect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While you move, PackCal's load-aware calorie total is the hero of its cell on the watch. After you save, the pack-aware fields land in Garmin Connect under the activity's Stats then Connect IQ section: pack weight, pack calories, and terrain. The big headline calorie at the top of the activity is Garmin's own heart-rate-based estimate and doesn't know about your load — Garmin doesn't let a third-party data field overwrite that field. Both numbers are correct for what they measure: the headline answers how hard your body worked, and PackCal answers how much of that came from the pack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which activities does PackCal work in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PackCal shows a load-aware calorie number in walking-type activities where the math is honest: Walk, Hike, native Rucking, and related profiles like hunting, snowshoeing, and mountaineering. Indoor steady-state activities (treadmill, indoor walk, elliptical, stair) use an Auto path that scales your watch's estimate by pack weight. In activities where a pack-calorie number wouldn't be meaningful — running, strength, cycling, yoga, and so on — PackCal deliberately shows a muted dash rather than a misleading figure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are calories calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PackCal uses the Pandolf equation, a published military physiology model that estimates metabolic cost from body weight, pack weight, walking speed, grade, and terrain (Road, Gravel, Trail, Sand, Snow). When you slow below walking pace or GPS isn't usable, PackCal falls back to your watch's native heart-rate-based estimate so calories don't stall. The total shown is a hybrid of both. Full details are on the Calorie Math page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use PackCal indoors or on a treadmill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. On indoor steady-state activities (treadmill, indoor walk, elliptical, stair) PackCal uses an Auto path: it takes your watch's heart-rate calorie estimate and scales it up by the pack weight you've set. No GPS required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I set or change my pack weight?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PackCal has its own settings right on the watch — no phone needed. They appear in the activity's Connect IQ Fields menu for PackCal. You can set pack weight, weight unit (lb or kg), terrain, an optional body-weight override, and energy unit (kcal or kJ). If you change your pack weight mid-activity, PackCal picks it up within about a second; the change applies forward, and past calories aren't recomputed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does PackCal show a dash?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two reasons. First, if you're in an activity PackCal doesn't claim a load-aware number for (running, strength, cycling, and so on), it shows a dash with a 'Walk, Hike, Ruck only' note. Second, during warm-up — the first few seconds, before GPS lock, or while the pack-bonus baseline builds — it shows a quiet dash rather than a wrong number. If you've never set a pack weight or your body weight is unknown, it shows SETUP NEEDED instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I show calories in kilojoules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. PackCal has an Energy Unit setting (kcal or kJ) in its on-watch settings; it's display-only. The FIT file always records kcal, matching how Garmin stores energy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Garmin watches does PackCal work on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PackCal runs on 50 Garmin devices with Connect IQ 5.0 or later, across AMOLED and MIP displays, including Forerunner (70 / 165 / 170 / 255 / 265 / 570 / 955 / 965 / 970), fēnix 7 / 8 / E, Enduro 3, epix Pro, Venu (2 / 3 / 4 / X1 / Sq 2), vívoactive 5 / 6, and Instinct 3 AMOLED. See the devices page for the full per-family list, or check the Connect IQ Store listing for the live compatibility check."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does PackCal collect any data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Its settings stay on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. Full details on the Privacy page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "PackCal or RuckTrack — which should I get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They share the same calorie engine and write consistent FIT fields, but they're different shapes. PackCal is a single data field you drop into the activity you already use — calories the hero of one cell — for $1.99. RuckTrack is a full activity app with seven live screens, post-save summary pages, lifetime totals, and a manual treadmill mode, for $2.99. Get PackCal if you just want load-aware calories added to your existing setup; get RuckTrack if you want the complete rucking experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I request a refund?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Garmin permits returns of paid Connect IQ apps (commonly reported as a 48-hour window). The mechanism is typically to uninstall the app from your watch shortly after purchase; Garmin then reverses the charge automatically. If you have trouble, contact Garmin Support. Meridian doesn't process payments and has no access to your purchase."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="./"><img src="icon.png" alt=""> PackCal</a>
+    <div class="topnav-links">
+      <a href="calorie-math.html">Calorie Math</a>
+      <a href="devices.html">Devices</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a class="topnav-cta" href="https://apps.garmin.com/apps/2c5c0814-9b91-4dd4-92e8-3e60c0c3a8f1">Get PackCal</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap-narrow content-page">
+<div class="page-head">
+<p class="back"><a href="./">&larr; Home</a></p>
+<h1>Frequently Asked Questions</h1>
+<p class="updated">Last updated: 2026-06-21</p>
+</div>
+
+<div class="toc">
+<ol>
+  <li><a href="#add">How do I add PackCal to my watch?</a></li>
+  <li><a href="#trial">Is there a free trial?</a></li>
+  <li><a href="#stats">Where do I see my pack calories, and why differ from the headline?</a></li>
+  <li><a href="#activities">Which activities does PackCal work in?</a></li>
+  <li><a href="#calories">How are calories calculated?</a></li>
+  <li><a href="#treadmill">Can I use PackCal indoors or on a treadmill?</a></li>
+  <li><a href="#settings">How do I set or change my pack weight?</a></li>
+  <li><a href="#dashes">Why does PackCal show a "--"?</a></li>
+  <li><a href="#kj">Can I show calories in kilojoules?</a></li>
+  <li><a href="#devices">Which Garmin watches does PackCal work on?</a></li>
+  <li><a href="#data">Does PackCal collect any data?</a></li>
+  <li><a href="#vs-rucktrack">PackCal or RuckTrack — which should I get?</a></li>
+  <li><a href="#refund">How do I request a refund?</a></li>
+</ol>
+</div>
+
+<h2 id="add">1. How do I add PackCal to my watch?</h2>
+<p>PackCal is a <strong>data field</strong>, not a separate activity you start. After installing it from the Connect IQ Store:</p>
+<ol>
+  <li>On your watch, open an activity that involves carrying weight — <strong>Hike</strong>, <strong>Walk</strong>, or a native <strong>Ruck</strong> profile.</li>
+  <li>Go into that activity's settings &rarr; data screens / data fields, pick a field slot, and choose <strong>Connect IQ Fields &rarr; PackCal</strong>.</li>
+  <li>Set your pack weight in PackCal's own on-watch settings (no phone needed), then start moving. The load-aware calorie total appears in the cell.</li>
+</ol>
+<p>Give PackCal a whole single-field screen and it shows the calorie hero plus a live HR / pace / ascent rail, a pack-bonus pill, and a timer-and-distance footer. In a denser multi-field layout it shows a compact labelled number.</p>
+
+<h2 id="trial">2. Is there a free trial?</h2>
+<p>No. PackCal is a one-time <strong>$1.99 USD</strong> purchase via Garmin Pay, with no trial. A data field has no buttons or input surface of its own, so the usual code-based trial flow doesn't fit it. Instead, this site is meant to do the trial's job — the <a href="./">screenshots</a>, the <a href="calorie-math.html">calorie-math page</a>, and this FAQ show exactly what you get before you buy.</p>
+<p>If you want a fuller, try-before-you-buy rucking experience, its companion app <a href="https://meridian-apps.github.io/rucktrack-docs/">RuckTrack</a> offers a 7-day trial on its KiezelPay listing.</p>
+
+<h2 id="stats">3. Where do I see my pack calories, and why are they different from the headline number in Garmin Connect?</h2>
+<p>While you move, PackCal's load-aware total is the hero of its cell on the watch. After you save, the pack-aware fields land in Garmin Connect under the activity's <strong>Stats &rarr; Connect IQ</strong> section: pack weight, pack calories, and terrain.</p>
+<p>The big headline calorie at the top of the activity is Garmin's own heart-rate-based estimate, and it doesn't know about your load — Garmin doesn't let a third-party data field overwrite that field. Both numbers are correct for what they measure: the headline answers "how hard did your body work?" and PackCal answers "how much of that came from the pack?" The <a href="calorie-math.html#vs-garmin">Calorie Math page</a> explains the gap.</p>
+
+<h2 id="activities">4. Which activities does PackCal work in?</h2>
+<p>PackCal shows a load-aware number where the math is honest:</p>
+<ul>
+  <li><strong>Walk, Hike, native Rucking</strong> (and related profiles like hunting, snowshoeing, mountaineering) — full Pandolf load-aware calories.</li>
+  <li><strong>Treadmill, indoor walk, elliptical, stair</strong> — an Auto path that scales your watch's estimate by pack weight.</li>
+  <li><strong>Everything else</strong> — running, strength, cycling, yoga, and so on — PackCal shows a muted "--" with a "Walk · Hike · Ruck only" note, rather than a misleading figure. (Running may return in a later version, informed by data.)</li>
+</ul>
+
+<h2 id="calories">5. How are calories calculated?</h2>
+<p>PackCal uses the Pandolf equation, a published military physiology model that estimates metabolic cost from body weight, pack weight, walking speed, grade, and terrain (Road, Gravel, Trail, Sand, Snow). When you slow below walking pace or GPS isn't usable, PackCal falls back to your watch's native heart-rate-based estimate so calories don't stall. The total shown is a hybrid of both. Full details on the <a href="calorie-math.html">Calorie Math page</a>.</p>
+
+<h2 id="treadmill">6. Can I use PackCal indoors or on a treadmill?</h2>
+<p>Yes. On indoor steady-state activities (treadmill, indoor walk, elliptical, stair) PackCal uses an Auto path: it takes your watch's heart-rate calorie estimate and scales it up by the pack weight you've set. No GPS required, and the subtitle shows the resulting "+N%" so you can see what the load added.</p>
+
+<h2 id="settings">7. How do I set or change my pack weight?</h2>
+<p>PackCal has its own settings right on the watch — no phone needed — reachable from the activity's Connect IQ Fields menu for PackCal. You can set pack weight, weight unit (lb or kg), terrain, an optional body-weight override, and energy unit (kcal or kJ).</p>
+<p>If you change your pack weight mid-activity, PackCal picks it up within about a second. The change applies forward; past calories aren't recomputed.</p>
+
+<h2 id="dashes">8. Why does PackCal show a "--"?</h2>
+<p>Two reasons:</p>
+<ul>
+  <li><strong>Unsupported activity.</strong> In activities PackCal doesn't claim a load-aware number for (running, strength, cycling, …) it shows "--" with a "Walk · Hike · Ruck only" note.</li>
+  <li><strong>Warm-up.</strong> During the first few seconds, before GPS lock, or while the pack-bonus baseline builds, it shows a quiet "--" instead of a wrong number.</li>
+</ul>
+<p>If you've never set a pack weight, or your body weight is unknown (no profile weight and no override), it shows <strong>SETUP NEEDED</strong> instead.</p>
+
+<h2 id="kj">9. Can I show calories in kilojoules?</h2>
+<p>Yes. PackCal has an Energy Unit setting (kcal or kJ) in its on-watch settings; it's display-only. The FIT file always records kcal, matching how Garmin stores energy.</p>
+
+<h2 id="devices">10. Which Garmin watches does PackCal work on?</h2>
+<p>PackCal runs on 50 Garmin devices with Connect IQ 5.0 or later, across AMOLED and MIP displays, including Forerunner (70 / 165 / 170 / 255 / 265 / 570 / 955 / 965 / 970), f&#x113;nix 7 / 8 / E, Enduro 3, epix Pro, Venu (2 / 3 / 4 / X1 / Sq 2), v&iacute;voactive 5 / 6, and Instinct 3 AMOLED. See <a href="devices.html">the devices page</a> for the full per-family list, or check the <a href="https://apps.garmin.com/apps/2c5c0814-9b91-4dd4-92e8-3e60c0c3a8f1">Connect IQ Store listing</a> for the live compatibility check.</p>
+
+<h2 id="data">11. Does PackCal collect any data?</h2>
+<p>No. Its settings stay on your watch. Meridian operates no servers, runs no analytics, has no companion phone app, and uses no third-party SDKs. Full details on the <a href="privacy.html">Privacy page</a>.</p>
+
+<h2 id="vs-rucktrack">12. PackCal or RuckTrack — which should I get?</h2>
+<p>They share the same calorie engine and write consistent FIT fields, but they're different shapes:</p>
+<ul>
+  <li><strong>PackCal</strong> is a single data field you drop into the activity you already use — calories the hero of one cell — for $1.99.</li>
+  <li><strong><a href="https://meridian-apps.github.io/rucktrack-docs/">RuckTrack</a></strong> is a full activity app with seven live screens, post-save summary pages, lifetime totals, and a manual treadmill mode, for $2.99.</li>
+</ul>
+<p>Get PackCal if you just want load-aware calories added to your existing setup; get RuckTrack if you want the complete rucking experience.</p>
+
+<h2 id="refund">13. How do I request a refund?</h2>
+<p>Garmin permits returns of paid Connect IQ apps (commonly reported as a 48-hour window). The mechanism is typically to uninstall the app from your watch shortly after purchase; Garmin then reverses the charge automatically. If you have trouble, contact <a href="https://support.garmin.com/">Garmin Support</a>. Meridian doesn't process payments and has no access to your purchase.</p>
+
+<p>Have a question that isn't here? <a href="support.html">Get in touch</a>.</p>
+
+<p class="back" style="margin-top: 2rem;"><a href="./">&larr; Home</a></p>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div>
+        <h5>PackCal</h5>
+        <p>A Garmin Connect IQ data field that adds load-aware calories — for weighted vests, packs, and loaded hikes — to your existing activities. Built by Meridian Apps.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="calorie-math.html">Calorie Math</a></li>
+          <li><a href="devices.html">Supported devices</a></li>
+          <li><a href="https://apps.garmin.com/apps/2c5c0814-9b91-4dd4-92e8-3e60c0c3a8f1">Connect IQ Store</a></li>
+          <li><a href="https://meridian-apps.github.io/rucktrack-docs/">RuckTrack (full app)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support &amp; contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:garmin.lanam+packcal@gmail.com">Email Meridian</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Meridian. PackCal is an independent app. Garmin and Connect IQ are trademarks of Garmin Ltd.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

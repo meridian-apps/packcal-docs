@@ -14,9 +14,9 @@ org — the two sites deliberately share one design.
 | `index.html` | ✅ | Landing — single-cell data-field story, screenshots, CTA |
 | `privacy.html` | ✅ | **Garmin-required.** PackCal's actual storage (settings only) + 3 FIT fields |
 | `support.html` | ✅ | Email, "it's a data field — how to add it", bug template, refunds |
-| `faq.html` | ⬜ TODO | Adapt rucktrack-docs/faq.html; lead with the data-field / "where are my stats" questions |
-| `calorie-math.html` | ⬜ TODO | Reuse rucktrack-docs/calorie-math.html (shared Pandolf math) |
-| `devices.html` | ⬜ TODO | Adapt to PackCal's 50-device launch list |
+| `faq.html` | ✅ | Data-field-first FAQ (how to add it, where stats appear, supported activities, vs RuckTrack) |
+| `calorie-math.html` | ✅ | Pandolf math, adapted to PackCal (no 70 kg default, data-field FIT fields, no Manual treadmill) |
+| `devices.html` | ✅ | PackCal's 50-device launch list, 7 families |
 | `calculator.html` | ⬜ TODO | Optional; reuse ruck's |
 
 Store UUID: `2c5c0814-9b91-4dd4-92e8-3e60c0c3a8f1` →

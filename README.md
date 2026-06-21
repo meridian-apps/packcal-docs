@@ -52,7 +52,7 @@ Deferred because it requires re-linking the live rucktrack-docs pages.
 
 - `icon.png` — PackCal launcher icon (from the app's `resources-icons/size-70`).
 - `assets/screenshots/` — store screenshots from `garmin/pack/screenshots/store/fr965-v1.0/`.
-- `og-image.png` — ⬜ TODO: 1200×630 social card (rucktrack-docs/og-image.png is the template). The `<meta og:image>` tags already point at it.
+- `og-image.png` — ✅ 1200×630 social card (cover-cropped from `garmin/pack/images/store_hero.png` — the violet vest-walker scene with the watch inset). The `<meta og:image>` tags point at it.
 
 ## Deploy
 

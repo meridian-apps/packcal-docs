@@ -19,8 +19,8 @@ org — the two sites deliberately share one design.
 | `devices.html` | ✅ | PackCal's 50-device launch list, 7 families |
 | `calculator.html` | ⬜ TODO | Optional; reuse ruck's |
 
-Store UUID: `2c5c0814-9b91-4dd4-92e8-3e60c0c3a8f1` →
-`https://apps.garmin.com/apps/2c5c0814-9b91-4dd4-92e8-3e60c0c3a8f1`
+Store UUID: `809c953d-9547-49d3-9949-c27ad3a5c218` →
+`https://apps.garmin.com/apps/809c953d-9547-49d3-9949-c27ad3a5c218`
 Contact: `garmin.lanam+packcal@gmail.com`
 
 ## Styling — how we keep it from drifting vs rucktrack-docs

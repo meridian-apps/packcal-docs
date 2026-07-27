@@ -1,0 +1,14 @@
+name: check-pages
+
+# Calls the shared checker in meridian-apps.github.io so the docs family has one
+# copy, not one per site. See that repo's scripts/check-pages.py for what it
+# guards; running it against both corpora is what keeps it honest.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    uses: meridian-apps/meridian-apps.github.io/.github/workflows/check-pages.yml@main
